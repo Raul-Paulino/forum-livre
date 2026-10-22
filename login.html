@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Cadastro | DevForum</title>
+    
+    <!-- Favicon direto via SVG (Sem baixar imagem) -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body class="auth-body">
+
+    <div class="auth-container">
+        <!-- Cabeçalho do Card de Autenticação -->
+        <div class="auth-header">
+            <h1>🌐 Dev<span>Forum</span></h1>
+            <p>Conecte-se com a comunidade e compartilhe suas ideias!</p>
+        </div>
+
+        <!-- Abas de Troca (Login / Cadastro) -->
+        <div class="auth-tabs">
+            <button id="tabLogin" class="tab-btn active">Entrar</button>
+            <button id="tabCadastro" class="tab-btn">Cadastrar-se</button>
+        </div>
+
+        <!-- Formulário de Login -->
+        <form id="formLogin" class="auth-form">
+            <div class="input-group">
+                <label for="loginEmail">E-mail</label>
+                <input type="email" id="loginEmail" placeholder="seu@email.com" required>
+            </div>
+            <div class="input-group">
+                <label for="loginSenha">Senha</label>
+                <input type="password" id="loginSenha" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="btn-primary">Entrar na Comunidade</button>
+        </form>
+
+        <!-- Formulário de Cadastro (Oculto inicialmente) -->
+        <form id="formCadastro" class="auth-form hidden">
+            <div class="input-group">
+                <label for="cadNome">Nome de Usuário (@nickname)</label>
+                <input type="text" id="cadNome" placeholder="ex: rauldev" required>
+            </div>
+            <div class="input-group">
+                <label for="cadEmail">E-mail</label>
+                <input type="email" id="cadEmail" placeholder="seu@email.com" required>
+            </div>
+            <div class="input-group">
+                <label for="cadSenha">Senha</label>
+                <input type="password" id="cadSenha" placeholder="Crie uma senha forte" required>
+            </div>
+            <button type="submit" class="btn-primary">Criar Minha Conta</button>
+        </form>
+
+        <!-- Mensagens de Feedback (Sucesso / Erro) -->
+        <div id="authMessage" class="auth-message"></div>
+    </div>
+
+    <!-- Script de Autenticação -->
+    <script src="auth.js"></script>
+</body>
+</html>

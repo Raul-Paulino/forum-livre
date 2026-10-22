@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevForum | Comunidade Livre</title>
+    
+    <!-- Favicon direto via SVG (Sem baixar imagem) -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+    <!-- CABEÇALHO / HEADER -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                🌐 Dev<span>Forum</span>
+            </a>
+
+            <!-- Campo de Busca no Feed -->
+            <div class="search-box">
+                <input type="text" id="inputBusca" placeholder="Pesquisar posts ou tópicos...">
+            </div>
+
+            <!-- Dados do Usuário Logado -->
+            <div class="user-profile" id="userProfile">
+                <span id="userNameDisplay">@usuario</span>
+                <button id="btnLogout" class="btn-logout">Sair</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL (LAYOUT 2 COLUNAS) -->
+    <div class="app-container">
+        
+        <!-- SIDEBAR / BARRA LATERAL -->
+        <aside class="sidebar">
+            <h3>Categorias</h3>
+            <ul class="category-list">
+                <li class="active" data-category="todos">🌐 #todos</li>
+                <li data-category="tecnologia">💻 #tecnologia</li>
+                <li data-category="geral">💬 #geral</li>
+                <li data-category="fitness">🏋️‍♂️ #fitness</li>
+                <li data-category="setup">🖥️ #setup</li>
+            </ul>
+        </aside>
+
+        <!-- ÁREA CENTRAL DO FEED -->
+        <main class="feed-container">
+            
+            <!-- CARD DE CRIAR POST -->
+            <div class="create-post-card">
+                <h3>Criar uma publicação</h3>
+                <form id="formCreatePost">
+                    <input type="text" id="postTitle" placeholder="Título da sua publicação..." required>
+                    
+                    <div class="post-options">
+                        <select id="postCategory" required>
+                            <option value="" disabled selected>Selecione a categoria</option>
+                            <option value="tecnologia">💻 Tecnologia</option>
+                            <option value="geral">💬 Geral</option>
+                            <option value="fitness">🏋️‍♂️ Fitness</option>
+                            <option value="setup">🖥️ Setup</option>
+                        </select>
+                    </div>
+
+                    <textarea id="postContent" rows="3" placeholder="No que você está pensando hoje?" required></textarea>
+                    
+                    <div class="card-footer">
+                        <button type="submit" class="btn-primary">Publicar</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- FEED DE POSTAGENS (ONDE OS POSTS VÃO APARECER VIA JS) -->
+            <div id="feedList" class="feed-list">
+                <!-- Posts injetados dinamicamente via JS -->
+            </div>
+
+        </main>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,614 @@
+/* ==========================================
+   CONFIGURAÇÕES GERAIS E VARIÁVEIS
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+:root {
+    --bg-dark: #0f172a;
+    --card-bg: #1e293b;
+    --text-color: #f8fafc;
+    --text-secondary: #94a3b8;
+    --primary: #6366f1;
+    --primary-hover: #4f46e5;
+    --accent: #06b6d4;
+    --danger: #ef4444;
+    --success: #22c55e;
+    --border-color: #334155;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-color);
+    min-height: 100vh;
+}
+
+/* ==========================================
+   TELA DE AUTENTICAÇÃO (LOGIN / CADASTRO)
+   ========================================== */
+.auth-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.auth-container {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    width: 100%;
+    max-width: 440px;
+    padding: 35px 30px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.auth-header h1 {
+    font-size: 2rem;
+    color: var(--text-color);
+}
+
+.auth-header h1 span {
+    color: var(--primary);
+}
+
+.auth-header p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.auth-tabs {
+    display: flex;
+    background-color: var(--bg-dark);
+    padding: 4px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+    background-color: var(--primary);
+    color: #ffffff;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.auth-form.hidden {
+    display: none;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input-group label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.input-group input {
+    background-color: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    padding: 12px 14px;
+    border-radius: 8px;
+    color: var(--text-color);
+    font-size: 0.95rem;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: var(--primary);
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.auth-message {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    text-align: center;
+    display: none;
+}
+
+.auth-message.error {
+    display: block;
+    background-color: rgba(239, 68, 68, 0.2);
+    color: var(--danger);
+    border: 1px solid var(--danger);
+}
+
+.auth-message.success {
+    display: block;
+    background-color: rgba(34, 197, 94, 0.2);
+    color: var(--success);
+    border: 1px solid var(--success);
+}
+
+/* ==========================================
+   LAYOUT DO FEED PRINCIPAL (INDEX.HTML)
+   ========================================== */
+.main-header {
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+.search-box {
+    flex: 1;
+    max-width: 400px;
+}
+
+.search-box input {
+    width: 100%;
+    background-color: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 20px;
+    color: var(--text-color);
+    outline: none;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.btn-logout {
+    background-color: rgba(239, 68, 68, 0.2);
+    color: var(--danger);
+    border: 1px solid var(--danger);
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+    background-color: var(--danger);
+    color: #fff;
+}
+
+/* ==========================================
+   ESTRUTURA EM COLUNAS (APP CONTAINER)
+   ========================================== */
+.app-container {
+    max-width: 1200px;
+    margin: 25px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 25px;
+}
+
+/* SIDEBAR */
+.sidebar {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    height: fit-content;
+}
+
+.sidebar h3 {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.category-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.category-list li {
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.category-list li:hover,
+.category-list li.active {
+    background-color: var(--bg-dark);
+    color: var(--primary);
+}
+
+/* CARD DE CRIAR POST */
+.create-post-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.create-post-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+#formCreatePost {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#formCreatePost input,
+#formCreatePost select,
+#formCreatePost textarea {
+    background-color: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    padding: 12px;
+    border-radius: 8px;
+    color: var(--text-color);
+    outline: none;
+    font-size: 0.95rem;
+}
+
+#formCreatePost select option {
+    background-color: var(--bg-dark);
+}
+
+.card-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* CARD DO POST NO FEED */
+.post-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.post-author {
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.post-category-tag {
+    background-color: var(--bg-dark);
+    color: var(--primary);
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.post-title {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.post-content {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.post-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 12px;
+}
+
+.btn-action {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s ease;
+}
+
+.btn-action:hover {
+    color: var(--primary);
+}
+
+.btn-delete {
+    color: var(--danger);
+    margin-left: auto;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .app-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .sidebar {
+        display: none; /* Em telas pequenas focamos no feed */
+    }
+}
+
+/* ==========================================
+   SISTEMA DE COMENTÁRIOS
+   ========================================== */
+.comments-section {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed var(--border-color);
+}
+
+.comments-section.hidden {
+    display: none;
+}
+
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.comment-item {
+    background-color: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    padding: 10px 14px;
+    border-radius: 8px;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.comment-author {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.comment-text {
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+.btn-delete-comment {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: color 0.2s ease;
+}
+
+.btn-delete-comment:hover {
+    color: var(--danger);
+}
+
+.no-comments {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.comment-form {
+    display: flex;
+    gap: 10px;
+}
+
+.comment-form input {
+    flex: 1;
+    background-color: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.comment-form input:focus {
+    border-color: var(--primary);
+}
+
+.btn-sm {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    margin-top: 0;
+}
+
+/* ==========================================
+   FORMULÁRIO DE EDIÇÃO INLINE DO POST
+   ========================================== */
+.edit-post-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.edit-post-form h3 {
+    font-size: 1rem;
+    color: var(--primary);
+}
+
+.edit-post-form input,
+.edit-post-form select,
+.edit-post-form textarea {
+    background-color: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    border-radius: 8px;
+    color: var(--text-color);
+    outline: none;
+    font-size: 0.95rem;
+}
+
+.edit-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+    background-color: var(--bg-dark);
+    color: var(--text-color);
+}
+
+.btn-edit {
+    color: #f59e0b;
+}
+
+.btn-edit:hover {
+    color: #d97706;
+}
+
+/* ==========================================
+   AJUSTES FINOS DE RESPONSIVIDADE MOBILE
+   ========================================== */
+@media (max-width: 768px) {
+    .header-container {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 12px 15px;
+    }
+
+    .search-box {
+        order: 3; /* Move a busca para a linha de baixo no telemóvel */
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .user-profile {
+        font-size: 0.9rem;
+    }
+
+    .app-container {
+        margin: 15px auto;
+        padding: 0 12px;
+    }
+
+    .create-post-card, .post-card {
+        padding: 15px;
+    }
+
+    .post-title {
+        font-size: 1.1rem;
+    }
+
+    .post-actions {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .btn-delete, .btn-edit {
+        margin-left: 0;
+    }
+
+    .edit-actions {
+        flex-direction: column;
+    }
+
+    .comment-form {
+        flex-direction: column;
+    }
+
+    .comment-form button {
+        width: 100%;
+    }
+}
